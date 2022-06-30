@@ -1,0 +1,217 @@
+local Success, Data = pcall(function()
+	local _ = _G.CosmicAPI
+end)
+
+repeat
+	task.wait()
+until Success
+--[[
+
+██╗░░░██╗░█████╗░██╗░░░░░██╗██████╗░██╗░██████╗ ░█████╗░██╗░░░██╗░██████╗████████╗░█████╗░███╗░░░███╗
+██║░░░██║██╔══██╗██║░░░░░██║██╔══██╗╚█║██╔════╝ ██╔══██╗██║░░░██║██╔════╝╚══██╔══╝██╔══██╗████╗░████║
+╚██╗░██╔╝███████║██║░░░░░██║██║░░██║░╚╝╚█████╗░ ██║░░╚═╝██║░░░██║╚█████╗░░░░██║░░░██║░░██║██╔████╔██║
+░╚████╔╝░██╔══██║██║░░░░░██║██║░░██║░░░░╚═══██╗ ██║░░██╗██║░░░██║░╚═══██╗░░░██║░░░██║░░██║██║╚██╔╝██║
+░░╚██╔╝░░██║░░██║███████╗██║██████╔╝░░░██████╔╝ ╚█████╔╝╚██████╔╝██████╔╝░░░██║░░░╚█████╔╝██║░╚═╝░██║
+░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝╚═════╝░░░░╚═════╝░ ░╚════╝░░╚═════╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░╚═╝
+
+░██╗░░░░░░░██╗███████╗██████╗░██╗░░██╗░█████╗░░█████╗░██╗░░██╗
+░██║░░██╗░░██║██╔════╝██╔══██╗██║░░██║██╔══██╗██╔══██╗██║░██╔╝
+░╚██╗████╗██╔╝█████╗░░██████╦╝███████║██║░░██║██║░░██║█████═╝░
+░░████╔═████║░██╔══╝░░██╔══██╗██╔══██║██║░░██║██║░░██║██╔═██╗░
+░░╚██╔╝░╚██╔╝░███████╗██████╦╝██║░░██║╚█████╔╝╚█████╔╝██║░╚██╗
+░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░╚═╝░░╚═╝░╚════╝░░╚════╝░╚═╝░░╚═╝
+
+]]--
+
+--[[This is a Custom Webhook made by valid#1000 for Cosmic Anti-Cheat. This webhook will include more detail than the default Cosmic Webhook. This is safe and reliable.]]--
+
+--[[GLOBAL VARIABLES]]--
+
+local ProxiedBanWebHook
+local ProxiedWarnWebHook
+
+--[[TIME STAMP]]--
+
+local TimeZone = 20 -- Set to EST by default 
+
+local Date = os.date("!*t")
+local Hour = (Date.hour + TimeZone) % 24
+local AMPM = Hour < 12 and "AM" or "PM"
+local TimeStamp = tostring(string.format("%02i:%02i %s", ((Hour - 1) % 12) + 1, Date.min, AMPM))
+
+local Date = tostring(os.date("%x"))
+
+--[[API VARIABLES]]--
+
+local Api = _G.CosmicApi
+
+--[[EXTRA VARIABLES]]--
+
+local HTTP = game:GetService("HttpService")
+local Players = game:GetService("Players")
+
+local GameID = tostring(game.PlaceId)
+
+--[[ The Settings Table should be the only thing you have to edit in order for this to work ]] --
+
+local Settings = {
+
+	EnableLogger = false; -- Set to false if you want to disable Webhook Logging --
+	WarnWebhook = " "; -- AutoProxy is on! Just copy and paste the WebHook link from Discord and Proxy will be automatically placed in! --
+	BanWebhook = " "; -- AutoProxy is on! Just copy and paste the WebHook link from Discord and Proxy will be automatically placed in! --
+	EmbedColor = 2500134; -- Set to Gray by default, visit https://www.mathsisfun.com/hexadecimal-decimal-colors.html to change color. --
+}
+
+--[[AUTO PROXY]]--
+
+if Settings.EnableLogger then
+	ProxiedWarnWebHook = string.gsub(Settings.WarnWebhook, "https://discord.com/api/webhooks/", "https://webhook.lewistehminerz.dev/api/webhooks/")
+	ProxiedBanWebHook = string.gsub(Settings.BanWebhook, "https://discord.com/api/webhooks/", "https://webhook.lewistehminerz.dev/api/webhooks/")
+end
+
+--[[ERROR CHECKING]]--
+
+if Settings.EnableLogger then
+	if Settings.WarnWebhook == " " then
+		warn("Please insert a Discord Webhook Link for the Warn Webhook")
+	end
+	if Settings.BanWebhook == " " then
+		warn("Please insert a Discord Webhook Link for the Ban Webhook")
+	end
+end
+
+--[[MAIN WEBHOOK]]--
+
+Api.OnBan:Connect(function(Player, Reason, BanTime)
+
+	if Settings.EnableLogger then
+
+		local PlayerPunished = tostring(Player)
+		local BanTimeString = tostring(BanTime)
+		local PunishedPlayerID = tostring(Players:FindFirstChild(PlayerPunished).UserId)
+		local PlayerAccountAge = tostring(Players:FindFirstChild(PlayerPunished).AccountAge)
+		local WarnReason = tostring(Reason)
+
+		local Data = 
+
+			{
+				["embeds"] = {{
+					["title"] = "Player Banned";
+					["color"] = Settings.EmbedColor; 
+					["thumbnail"] = {
+						["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=+"..PunishedPlayerID.."+&width=420&height=420&format=png";
+					};
+					["image"] = { 
+						["url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987846821089013831/Untitled.jpg"; 
+					};
+					["author"] = { 
+						["name"] = "Cosmic Anticheat";
+						["icon_url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987839937195954176/IMG_7994.jpg";
+					};
+					["footer"] = {
+						["text"] = "Powered by Cosmic AntiCheat API | "..TimeStamp.." | "..Date;
+						["icon_url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987839937195954176/IMG_7994.jpg";
+					};
+					["fields"] = {
+						{
+							["name"] = "__Player Name:__",
+							["value"] = PlayerPunished,
+							["inline"] = true
+						};
+						{
+							["name"] = "__Player ID:__",
+							["value"] = PunishedPlayerID,
+							["inline"] = true
+						};
+						{
+							["name"] = "__Reason:__",
+							["value"] = WarnReason,
+							["inline"] = true
+						}; 
+						{
+							["name"] = "__Ban Time:__",
+							["value"] = BanTimeString,
+							["inline"] = true
+						}; 
+						{
+							["name"] = "__Player Account Age:__",
+							["value"] = PlayerAccountAge.." Days",
+							["inline"] = true
+						};
+						{
+							["name"] = "__Links:__",
+							["value"] = "\n [Profile Link](https://www.roblox.com/users/"..PunishedPlayerID.."/profile)\n [Game Link](https://www.roblox.com/games/"..GameID.."/)";
+							["inline"] = true
+						};
+					}
+				}}
+			}
+
+		local FinalData = HTTP:JSONEncode(Data)
+		HTTP:PostAsync(ProxiedBanWebHook, FinalData)
+	end
+end)
+
+Api.OnWarn:Connect(function(Player, Reason)
+
+	if Settings.EnableLogger then
+
+		local PlayerPunished = tostring(Player)
+		local PunishedPlayerID = tostring(Players:FindFirstChild(PlayerPunished).UserId)
+		local PlayerAccountAge = tostring(Players:FindFirstChild(PlayerPunished).AccountAge)
+		local WarnReason = tostring(Reason)
+
+		local Data = 
+
+			{
+				["embeds"] = {{
+					["title"] = "Player Warned";
+					["color"] = Settings.EmbedColor; 
+					["thumbnail"] = {
+						["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=+"..PunishedPlayerID.."+&width=420&height=420&format=png";
+					};
+					["image"] = { 
+						["url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987846821089013831/Untitled.jpg"; 
+					};
+					["author"] = { 
+						["name"] = "Cosmic Anticheat";
+						["icon_url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987839937195954176/IMG_7994.jpg";
+					};
+					["footer"] = {
+						["text"] = "Powered by Cosmic AntiCheat API | "..TimeStamp.." | "..Date;
+						["icon_url"] = "https://cdn.discordapp.com/attachments/972895811316891739/987839937195954176/IMG_7994.jpg";
+					};
+					["fields"] = {
+						{
+							["name"] = "__Player Name:__",
+							["value"] = PlayerPunished,
+							["inline"] = true
+						};
+						{
+							["name"] = "__Player ID:__",
+							["value"] = PunishedPlayerID,
+							["inline"] = true
+						};
+						{
+							["name"] = "__Reason:__",
+							["value"] = WarnReason,
+							["inline"] = true
+						}; 
+						{
+							["name"] = "__Player Account Age:__",
+							["value"] = PlayerAccountAge.." Days",
+							["inline"] = true
+						};
+						{
+							["name"] = "__Links:__",
+							["value"] = "\n [Profile Link](https://www.roblox.com/users/"..PunishedPlayerID.."/profile)\n [Game Link](https://www.roblox.com/games/"..GameID.."/)";
+							["inline"] = true
+						};
+					}
+				}}
+			}
+
+		local FinalData = HTTP:JSONEncode(Data)
+		HTTP:PostAsync(ProxiedWarnWebHook, FinalData)
+	end
+end)
