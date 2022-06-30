@@ -1,1 +1,1 @@
-"local hi = script.Parent"
+local hi = script.Parent
