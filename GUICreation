@@ -29,7 +29,7 @@ local UIGridLayout = Instance.new("UIGridLayout")
 --Properties:
 
 CosmicPackageLoader.Name = "CosmicPackageLoader"
-CosmicPackageLoader.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CosmicPackageLoader.Parent = game.CoreGui
 CosmicPackageLoader.Enabled = false
 CosmicPackageLoader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
