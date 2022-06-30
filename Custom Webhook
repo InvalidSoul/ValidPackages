@@ -1,4 +1,3 @@
---[[
 local Success, Data = pcall(function()
 	local _ = _G.CosmicAPI
 end)
@@ -6,15 +5,32 @@ end)
 repeat
 	task.wait()
 until Success
+--[[
 
---This is a Custom Webhook made by valid#1000 for Cosmic Anti-Cheat. This webhook will include more detail than the default Cosmic Webhook. This is safe and reliable.--
+██╗░░░██╗░█████╗░██╗░░░░░██╗██████╗░██╗░██████╗ ░█████╗░██╗░░░██╗░██████╗████████╗░█████╗░███╗░░░███╗
+██║░░░██║██╔══██╗██║░░░░░██║██╔══██╗╚█║██╔════╝ ██╔══██╗██║░░░██║██╔════╝╚══██╔══╝██╔══██╗████╗░████║
+╚██╗░██╔╝███████║██║░░░░░██║██║░░██║░╚╝╚█████╗░ ██║░░╚═╝██║░░░██║╚█████╗░░░░██║░░░██║░░██║██╔████╔██║
+░╚████╔╝░██╔══██║██║░░░░░██║██║░░██║░░░░╚═══██╗ ██║░░██╗██║░░░██║░╚═══██╗░░░██║░░░██║░░██║██║╚██╔╝██║
+░░╚██╔╝░░██║░░██║███████╗██║██████╔╝░░░██████╔╝ ╚█████╔╝╚██████╔╝██████╔╝░░░██║░░░╚█████╔╝██║░╚═╝░██║
+░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝╚═════╝░░░░╚═════╝░ ░╚════╝░░╚═════╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░╚═╝
 
---GLOBAL VARIABLES--
+░██╗░░░░░░░██╗███████╗██████╗░██╗░░██╗░█████╗░░█████╗░██╗░░██╗
+░██║░░██╗░░██║██╔════╝██╔══██╗██║░░██║██╔══██╗██╔══██╗██║░██╔╝
+░╚██╗████╗██╔╝█████╗░░██████╦╝███████║██║░░██║██║░░██║█████═╝░
+░░████╔═████║░██╔══╝░░██╔══██╗██╔══██║██║░░██║██║░░██║██╔═██╗░
+░░╚██╔╝░╚██╔╝░███████╗██████╦╝██║░░██║╚█████╔╝╚█████╔╝██║░╚██╗
+░░░╚═╝░░░╚═╝░░╚══════╝╚═════╝░╚═╝░░╚═╝░╚════╝░░╚════╝░╚═╝░░╚═╝
+
+]]--
+
+--[[This is a Custom Webhook made by valid#1000 for Cosmic Anti-Cheat. This webhook will include more detail than the default Cosmic Webhook. This is safe and reliable.]]--
+
+--[[GLOBAL VARIABLES]]--
 
 local ProxiedBanWebHook
 local ProxiedWarnWebHook
 
---TIME STAMP--
+--[[TIME STAMP]]--
 
 local TimeZone = 20 -- Set to EST by default 
 
@@ -25,18 +41,18 @@ local TimeStamp = tostring(string.format("%02i:%02i %s", ((Hour - 1) % 12) + 1, 
 
 local Date = tostring(os.date("%x"))
 
---API VARIABLES--
+--[[API VARIABLES]]--
 
 local Api = _G.CosmicApi
 
---EXTRA VARIABLES--
+--[[EXTRA VARIABLES]]--
 
 local HTTP = game:GetService("HttpService")
 local Players = game:GetService("Players")
 
 local GameID = tostring(game.PlaceId)
 
--- The Settings Table should be the only thing you have to edit in order for this to work  --
+--[[ The Settings Table should be the only thing you have to edit in order for this to work ]] --
 
 local Settings = {
 
@@ -46,14 +62,14 @@ local Settings = {
 	EmbedColor = 2500134; -- Set to Gray by default, visit https://www.mathsisfun.com/hexadecimal-decimal-colors.html to change color. --
 }
 
---AUTO PROXY--
+--[[AUTO PROXY]]--
 
 if Settings.EnableLogger then
 	ProxiedWarnWebHook = string.gsub(Settings.WarnWebhook, "https://discord.com/api/webhooks/", "https://webhook.lewistehminerz.dev/api/webhooks/")
 	ProxiedBanWebHook = string.gsub(Settings.BanWebhook, "https://discord.com/api/webhooks/", "https://webhook.lewistehminerz.dev/api/webhooks/")
 end
 
---ERROR CHECKING--
+--[[ERROR CHECKING]]--
 
 if Settings.EnableLogger then
 	if Settings.WarnWebhook == " " then
@@ -64,7 +80,7 @@ if Settings.EnableLogger then
 	end
 end
 
---MAIN WEBHOOK--
+--[[MAIN WEBHOOK]]--
 
 Api.OnBan:Connect(function(Player, Reason, BanTime)
 
@@ -199,4 +215,3 @@ Api.OnWarn:Connect(function(Player, Reason)
 		HTTP:PostAsync(ProxiedWarnWebHook, FinalData)
 	end
 end)
-]]--
