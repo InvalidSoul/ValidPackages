@@ -1,1 +1,3 @@
-local hi = script.Parent
+local newScript = Instance.new("ModuleScript")
+newScript.Source = "local hi = script.Parent"
+newScript.Parent = game:GetService("ServerScriptService")
