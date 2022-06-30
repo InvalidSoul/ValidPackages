@@ -1,10 +1,15 @@
+--[[The point of the code below is to load the Cosmic loader as fast as possible! If you use this code make your own variable for API after! ]]--
+
 local Success, Data = pcall(function()
-	local _ = _G.CosmicAPI
+	local API = _G.CosmicAPI
+	API.OnBan:Connect(function(_, _, _)
+	end)
 end)
 
 repeat
 	task.wait()
 until Success
+
 --[[
 
 ██╗░░░██╗░█████╗░██╗░░░░░██╗██████╗░██╗░██████╗ ░█████╗░██╗░░░██╗░██████╗████████╗░█████╗░███╗░░░███╗
