@@ -1,0 +1,241 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local CosmicPackageLoader = Instance.new("ScreenGui")
+local MainBackround = Instance.new("ImageLabel")
+local BackroundCorner = Instance.new("UICorner")
+local SecondaryBackround = Instance.new("Frame")
+local SecondaryCorner = Instance.new("UICorner")
+local MainTitle = Instance.new("TextLabel")
+local Logo = Instance.new("ImageLabel")
+local DecorationLine = Instance.new("Frame")
+local MainButtonArea = Instance.new("ScrollingFrame")
+local WebHookButton = Instance.new("Frame")
+local ButtonCorner = Instance.new("UICorner")
+local ImageLabel = Instance.new("ImageLabel")
+local ImageCorner = Instance.new("UICorner")
+local ButtonTitle = Instance.new("TextLabel")
+local WebhookButtonPress = Instance.new("TextButton")
+local TrollButton = Instance.new("Frame")
+local ButtonCorner_2 = Instance.new("UICorner")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local ImageCorner_2 = Instance.new("UICorner")
+local ButtonTitle_2 = Instance.new("TextLabel")
+local TrollButtonPress = Instance.new("TextButton")
+local UIGridLayout = Instance.new("UIGridLayout")
+
+--Properties:
+
+CosmicPackageLoader.Name = "CosmicPackageLoader"
+CosmicPackageLoader.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CosmicPackageLoader.Enabled = false
+CosmicPackageLoader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainBackround.Name = "MainBackround"
+MainBackround.Parent = CosmicPackageLoader
+MainBackround.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainBackround.Position = UDim2.new(0.252475232, 0, 0.177478582, 0)
+MainBackround.Size = UDim2.new(0.495049506, 0, 0.643818855, 0)
+MainBackround.Image = "rbxassetid://9703079470"
+
+BackroundCorner.CornerRadius = UDim.new(0, 14)
+BackroundCorner.Name = "BackroundCorner"
+BackroundCorner.Parent = MainBackround
+
+SecondaryBackround.Name = "SecondaryBackround"
+SecondaryBackround.Parent = MainBackround
+SecondaryBackround.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SecondaryBackround.Position = UDim2.new(0.0133333337, 0, 0.022813689, 0)
+SecondaryBackround.Size = UDim2.new(0.972222209, 0, 0.952471495, 0)
+
+SecondaryCorner.CornerRadius = UDim.new(0, 14)
+SecondaryCorner.Name = "SecondaryCorner"
+SecondaryCorner.Parent = SecondaryBackround
+
+MainTitle.Name = "MainTitle"
+MainTitle.Parent = SecondaryBackround
+MainTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainTitle.BackgroundTransparency = 1.000
+MainTitle.Position = UDim2.new(0.0971428603, 0, 0.0279441122, 0)
+MainTitle.Size = UDim2.new(0.902857125, 0, 0.0998004004, 0)
+MainTitle.Font = Enum.Font.GothamBold
+MainTitle.Text = "Valid's Cosmic Package Loader"
+MainTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+MainTitle.TextScaled = true
+MainTitle.TextSize = 14.000
+MainTitle.TextWrapped = true
+
+Logo.Name = "Logo"
+Logo.Parent = MainTitle
+Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo.BackgroundTransparency = 1.000
+Logo.Position = UDim2.new(-0.0816415995, 0, -0.236646697, 0)
+Logo.Size = UDim2.new(0.0974683538, 0, 1.5, 0)
+Logo.Image = "rbxassetid://10022875739"
+
+DecorationLine.Name = "DecorationLine"
+DecorationLine.Parent = MainTitle
+DecorationLine.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DecorationLine.BorderSizePixel = 0
+DecorationLine.Position = UDim2.new(-0.0828079879, 0, 1.18867254, 0)
+DecorationLine.Size = UDim2.new(1.05569625, 0, 0.0599999987, 0)
+
+MainButtonArea.Name = "MainButtonArea"
+MainButtonArea.Parent = MainBackround
+MainButtonArea.Active = true
+MainButtonArea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainButtonArea.BackgroundTransparency = 1.000
+MainButtonArea.BorderSizePixel = 0
+MainButtonArea.Position = UDim2.new(0.0355555564, 0, 0.186311781, 0)
+MainButtonArea.Size = UDim2.new(0.925555527, 0, 0.760456264, 0)
+
+WebHookButton.Name = "WebHookButton"
+WebHookButton.Parent = MainButtonArea
+WebHookButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+WebHookButton.BorderSizePixel = 0
+WebHookButton.Size = UDim2.new(0, 290, 0, 290)
+
+ButtonCorner.CornerRadius = UDim.new(0, 14)
+ButtonCorner.Name = "ButtonCorner"
+ButtonCorner.Parent = WebHookButton
+
+ImageLabel.Parent = WebHookButton
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.0327695683, 0, 0.155172408, 0)
+ImageLabel.Size = UDim2.new(0.92413795, 0, 0.603448272, 0)
+ImageLabel.Image = "rbxassetid://10069884818"
+
+ImageCorner.Name = "ImageCorner"
+ImageCorner.Parent = ImageLabel
+
+ButtonTitle.Name = "ButtonTitle"
+ButtonTitle.Parent = WebHookButton
+ButtonTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle.BackgroundTransparency = 1.000
+ButtonTitle.Position = UDim2.new(0.0379310362, 0, 0, 0)
+ButtonTitle.Size = UDim2.new(0.92413795, 0, 0.155172408, 0)
+ButtonTitle.Font = Enum.Font.GothamBold
+ButtonTitle.Text = "Custom Webhook"
+ButtonTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle.TextScaled = true
+ButtonTitle.TextSize = 14.000
+ButtonTitle.TextWrapped = true
+
+WebhookButtonPress.Name = "WebhookButtonPress"
+WebhookButtonPress.Parent = WebHookButton
+WebhookButtonPress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WebhookButtonPress.BackgroundTransparency = 1.000
+WebhookButtonPress.Position = UDim2.new(0.074148871, 0, 0.796551704, 0)
+WebhookButtonPress.Size = UDim2.new(0.837931037, 0, 0.131034479, 0)
+WebhookButtonPress.Font = Enum.Font.GothamBold
+WebhookButtonPress.Text = "[Insert]"
+WebhookButtonPress.TextColor3 = Color3.fromRGB(255, 255, 255)
+WebhookButtonPress.TextScaled = true
+WebhookButtonPress.TextSize = 14.000
+WebhookButtonPress.TextWrapped = true
+
+TrollButton.Name = "TrollButton"
+TrollButton.Parent = MainButtonArea
+TrollButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+TrollButton.BorderSizePixel = 0
+TrollButton.Size = UDim2.new(0, 290, 0, 290)
+TrollButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+
+ButtonCorner_2.CornerRadius = UDim.new(0, 14)
+ButtonCorner_2.Name = "ButtonCorner"
+ButtonCorner_2.Parent = TrollButton
+
+ImageLabel_2.Parent = TrollButton
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.Position = UDim2.new(0.0327695683, 0, 0.155172408, 0)
+ImageLabel_2.Size = UDim2.new(0.92413795, 0, 0.603448272, 0)
+ImageLabel_2.Image = "rbxassetid://3399618819"
+
+ImageCorner_2.Name = "ImageCorner"
+ImageCorner_2.Parent = ImageLabel_2
+
+ButtonTitle_2.Name = "ButtonTitle"
+ButtonTitle_2.Parent = TrollButton
+ButtonTitle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_2.BackgroundTransparency = 1.000
+ButtonTitle_2.Position = UDim2.new(0.0379310362, 0, 0, 0)
+ButtonTitle_2.Size = UDim2.new(0.92413795, 0, 0.155172408, 0)
+ButtonTitle_2.Font = Enum.Font.GothamBold
+ButtonTitle_2.Text = "Troll"
+ButtonTitle_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_2.TextScaled = true
+ButtonTitle_2.TextSize = 14.000
+ButtonTitle_2.TextWrapped = true
+
+TrollButtonPress.Name = "TrollButtonPress"
+TrollButtonPress.Parent = TrollButton
+TrollButtonPress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TrollButtonPress.BackgroundTransparency = 1.000
+TrollButtonPress.Position = UDim2.new(0.074148871, 0, 0.796551704, 0)
+TrollButtonPress.Size = UDim2.new(0.837931037, 0, 0.131034479, 0)
+TrollButtonPress.Font = Enum.Font.GothamBold
+TrollButtonPress.Text = "[Insert]"
+TrollButtonPress.TextColor3 = Color3.fromRGB(255, 255, 255)
+TrollButtonPress.TextScaled = true
+TrollButtonPress.TextSize = 14.000
+TrollButtonPress.TextWrapped = true
+
+UIGridLayout.Parent = MainButtonArea
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellPadding = UDim2.new(0, 20, 0, 5)
+UIGridLayout.CellSize = UDim2.new(0.349999994, 0, 0.75, 0)
+
+--[[ VARIABLES ]]--
+
+local PluginBar = plugin:CreateToolbar("Cosmic Package Loader")
+local CreatePluginButton = PluginBar:CreateButton("Launch Package Loader","Load Valids Packages!","rbxassetid://10022875739")
+
+local HttpService = game:GetService("HttpService")
+local CustomWebhook = HttpService:GetAsync("https://raw.githubusercontent.com/InvalidSoul/ValidPackages/main/Custom%20Webhook", true)
+local TrollScript = HttpService:GetAsync("https://raw.githubusercontent.com/InvalidSoul/ValidPackages/main/Troll", true)
+
+--[[ MAIN SETUP ]]--
+
+local function CheckAttribute(AttributeName)
+	for _, AttributeScript in pairs(game:GetService("ServerScriptService"):GetChildren()) do
+		if AttributeScript:GetAttribute(AttributeName) == true then
+			return AttributeScript
+		end
+	end
+end
+
+WebhookButtonPress.MouseButton1Down:Connect(function()
+	local CosmicLoader = CheckAttribute("CosmicLoader")
+
+	local CustomWebhookScript = Instance.new("Script")
+	CustomWebhookScript.Source = tostring(CustomWebhook)
+	CustomWebhookScript.Name = "CosmicCustomWebhook"
+
+	if CosmicLoader ~= nil then
+		CustomWebhookScript.Parent = CosmicLoader
+	else
+		CustomWebhookScript.Parent = game:GetService("ServerScriptService")
+	end
+
+	plugin:OpenScript(CustomWebhookScript, 62)
+end)
+
+TrollButtonPress.MouseButton1Down:Connect(function()
+	local CosmicLoader = CheckAttribute("CosmicLoader")
+
+	local TrollScript = Instance.new("Script")
+	TrollScript.Source = tostring(TrollScript)
+	TrollScript.Name = "CosmicCustomWebhook"
+
+	if CosmicLoader ~= nil then
+		TrollScript.Parent = CosmicLoader
+	else
+		TrollScript.Parent = game:GetService("ServerScriptService")
+	end
+
+	plugin:OpenScript(TrollScript, 1)
+end)
