@@ -30,7 +30,7 @@ local UIGridLayout = Instance.new("UIGridLayout")
 
 CosmicPackageLoader.Name = "CosmicPackageLoader"
 CosmicPackageLoader.Parent = game.CoreGui
-CosmicPackageLoader.Enabled = false
+CosmicPackageLoader.Enabled = true
 CosmicPackageLoader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainBackround.Name = "MainBackround"
