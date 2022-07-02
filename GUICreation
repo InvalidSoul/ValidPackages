@@ -203,9 +203,9 @@ WebhookLink.Name = "Link"
 WebhookLink.Value = "https://raw.githubusercontent.com/InvalidSoul/ValidPackages/main/Custom%20Webhook"
 WebhookLink.Parent = WebhookButtonPress
 
-WebhookLink.Name = "Name"
-WebhookLink.Value = "CosmicCustomWebhook"
-WebhookLink.Parent = WebhookButtonPress
+WebhookName.Name = "Name"
+WebhookName.Value = "CosmicCustomWebhook"
+WebhookName.Parent = WebhookButtonPress
 
 WebhookType.Name = "Type"
 WebhookType.Value = "Script"
