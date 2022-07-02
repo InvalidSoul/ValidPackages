@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local CosmicPackageLoader = Instance.new("ScreenGui")
 local MainBackround = Instance.new("ImageLabel")
 local BackroundCorner = Instance.new("UICorner")
@@ -25,8 +20,6 @@ local ImageCorner_2 = Instance.new("UICorner")
 local ButtonTitle_2 = Instance.new("TextLabel")
 local TrollButtonPress = Instance.new("TextButton")
 local UIGridLayout = Instance.new("UIGridLayout")
-
---Properties:
 
 CosmicPackageLoader.Name = "CosmicPackageLoader"
 CosmicPackageLoader.Parent = game:GetService("CoreGui")
