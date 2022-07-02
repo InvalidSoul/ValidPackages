@@ -20,6 +20,12 @@ local ImageCorner_2 = Instance.new("UICorner")
 local ButtonTitle_2 = Instance.new("TextLabel")
 local TrollButtonPress = Instance.new("TextButton")
 local UIGridLayout = Instance.new("UIGridLayout")
+local TrollLink = Instance.new("StringValue")
+local TrollName = Instance.new("StringValue")
+local TrollType = Instance.new("StringValue")
+local WebhookLink = Instance.new("StringValue")
+local WebhookName = Instance.new("StringValue")
+local WebhookType = Instance.new("StringValue")
 
 CosmicPackageLoader.Name = "CosmicPackageLoader"
 CosmicPackageLoader.Parent = game:GetService("CoreGui")
@@ -180,3 +186,27 @@ UIGridLayout.Parent = MainButtonArea
 UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIGridLayout.CellPadding = UDim2.new(0, 20, 0, 5)
 UIGridLayout.CellSize = UDim2.new(0.349999994, 0, 0.75, 0)
+
+TrollLink.Name = "Link"
+TrollLink.Value = "https://raw.githubusercontent.com/InvalidSoul/ValidPackages/main/Troll"
+TrollLink.Parent = TrollButtonPress
+
+TrollName.Name = "Name"
+TrollName.Value = "TrollScript"
+TrollName.Parent = TrollButtonPress
+
+TrollType.Name = "Type"
+TrollType.Value = "Script"
+TrollType.Parent = TrollButtonPress
+
+WebhookLink.Name = "Link"
+WebhookLink.Value = "https://raw.githubusercontent.com/InvalidSoul/ValidPackages/main/Custom%20Webhook"
+WebhookLink.Parent = WebhookButtonPress
+
+WebhookLink.Name = "Name"
+WebhookLink.Value = "CosmicCustomWebhook"
+WebhookLink.Parent = WebhookButtonPress
+
+WebhookType.Name = "Type"
+WebhookType.Value = "Script"
+WebhookType.Parent = WebhookButtonPress
